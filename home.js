@@ -12,24 +12,62 @@ function getIdFromPokemon(pokemonUrl) {
 
 const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
 
+
+const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            //noget her!
+
+            currentOffset = currentOffset + 50
+
+            if (currentOffset < 1304) {
+                fetchPokemon(currentOffset)
+            } else {
+                console.log("no more pokemon");
+
+            }
+
+        }
+    })
+})
+
+
 // her begynder selve komponentet
 let sectionElm = document.createElement("section")
 sectionElm.className = "pokelist"
 
-fetch("/data/pokemon.json")
-    .then(function(response) {
-        return response.json()
-    }).then(
-        function(data) {
-            sectionElm.innerHTML =  data.map(pokemon => `
-                <article class="poke__card">
-              
+let currentOffset = 0
+
+function fetchPokemon(offset) {
+
+    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`)
+        .then(function (response) {
+            return response.json()
+        }).then(
+            function (data) {
+                sectionElm.innerHTML += data.results.map(pokemon => `
+        <article class="poke__card">
+              <p>#${getIdFromPokemon(pokemon.url).padStart(4, "0")}</p>
+               
+              <figure>
                 <img class="poke_image" src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
-                 <h2 class="poke__name">${pokemon.name}</h2>
-                </article>
+             </figure>
+              
+             <h2 class="poke__name">${pokemon.name}</h2>
+              
+             <a class="poke__link" href="/detail.html?name=${pokemon.name}"></a>            
+         </article>
             `).join("")
 
-        }
-    )
 
-document.querySelector("main").append(sectionElm)
+                let observedPokemon = sectionElm.querySelector("article:nth-last-child(5)")
+                observer.observe(observedPokemon)
+
+            }
+        )
+
+    document.querySelector("main").append(sectionElm)
+
+}
+
+fetchPokemon(currentOffset)
