@@ -1,0 +1,82 @@
+
+
+header {
+    padding-block: 3rem;
+    /* text-align: center; */
+    /* background-color: red; */
+}
+
+.poke_ball {
+    width: 25px;
+    margin-right: 1rem;
+}
+
+.brand {
+    font-size: xx-large;
+    font-weight: 800;
+    color: white;
+
+}
+
+.poke_search {
+    width: 20rem;
+    height: 2rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 1px 1px 5px 1px inset rgb(0 0 0 / 0.8);
+    padding-left: 1rem;
+}
+
+
+main {
+    padding: 3rem;
+    box-shadow: 4px 4px 10px 2px inset rgb(0 0 0 / 0.8);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.pokelist {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    border-radius: 20px;
+
+
+}
+
+.pokelist article:nth-last-child(5) {
+    background-color: orange;
+}
+
+.poke__card {
+    /* border: 1px solid rgba(0, 0, 0, 0.32); */
+    padding: 1rem 2rem 4rem 2rem;
+    /* padding: 4rem; */
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 2px rgb(0 0 0 / 0.8);
+    position: relative;
+}
+
+
+.poke__card p {
+    text-align: end;
+}
+
+.poke__name {
+    text-align: center;
+}
+
+.poke__link {
+    position: absolute;
+    inset: 0;
+}
+
+
+footer {
+
+    font-size: xx-large;
+    font-weight: 800;
+    color: white;
+}
+

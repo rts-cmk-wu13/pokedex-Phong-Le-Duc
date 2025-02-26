@@ -1,4 +1,7 @@
 
+
+
+
 let search = window.location.search
 let params = new URLSearchParams(search)
 let pokeName = params.get("name")
@@ -17,16 +20,14 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             console.log(pokemon);
 
 
-
+let headerElm = document.querySelector("header")
+headerElm.innerHTML = `
+    <p>${pokemon.name}</p>
+    <p>#${pokemon.id.toString().padStart(4, "0")}</p>
+`
+// document.querySelector("header").append(sectionElm)
             
             document.querySelector("body").style.backgroundColor = `var(--color-${pokemon.types[0].type.name})`;
-
-
-
-
-
-
-
 
 
             sectionElm.innerHTML = `
@@ -89,6 +90,14 @@ ${pokemon.moves.slice(0, 2).map(function (singleMove) {
 
             `
 
+ sectionElm.querySelectorAll("th").forEach(function(headingColor) {
+    headingColor.style.color = `var(--color-${pokemon.types[0].type.name})`
+})
+
+//  sectionElm.querySelector("meter").forEach(function(meterBarColor) {
+//     meterBarColor.style.backgroundColor = `var(--color-${pokemon.types[0].type.name})`
+// })
+                
 
             sectionElm.querySelectorAll("h3").forEach(function(headingColor) {
                 headingColor.style.color = `var(--color-${pokemon.types[0].type.name})`
