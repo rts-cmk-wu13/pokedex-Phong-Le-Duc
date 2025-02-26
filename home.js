@@ -45,19 +45,9 @@ function fetchPokemon(offset) {
             return response.json()
         }).then(
             function (data) {
-                sectionElm.innerHTML += data.results.map(pokemon => `
-        <article class="poke__card">
-              <p>#${getIdFromPokemon(pokemon.url).padStart(4, "0")}</p>
-               
-              <figure>
-                <img class="poke_image" src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
-             </figure>
-              
-             <h2 class="poke__name">${pokemon.name}</h2>
-              
-             <a class="poke__link" href="/detail.html?name=${pokemon.name}"></a>            
-         </article>
-            `).join("")
+                sectionElm.innerHTML += data.results.map(function(pokemon) {
+                    return createPokeCard(pokemon)
+                }).join("")
 
 
                 let observedPokemon = sectionElm.querySelector("article:nth-last-child(5)")
@@ -69,5 +59,9 @@ function fetchPokemon(offset) {
     document.querySelector("main").append(sectionElm)
 
 }
+
+
+
+
 
 fetchPokemon(currentOffset)
