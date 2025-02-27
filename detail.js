@@ -26,7 +26,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
 <div class="name-id">
 <a href="javascript:history.back()"><img src="/img/back_arrow.png" alt=""></a>
     <p class="name-id__pokemon">${pokemon.name}</p>
-    <p class="pad-number">#${pokemon.id.toString().padStart(4, "0")}</p>
+    <p class="pad-number">#${padNumber(pokemon.id)}</p>
     </div>
 `
             // document.querySelector("header").append(sectionElm)

@@ -1,4 +1,29 @@
 
+
+let divElm = document.createElement("div")
+divElm.id = "root"
+
+divElm.innerHTML = `
+<header>
+
+    <img class="poke_ball" src="img/pokeball.png" alt="">
+<span class="brand ">Pokédex</span> <br>
+<form action="detail.html"></form>
+<input class="poke_search" type="search" placeholder="Search Pokémon" name="name" id="name" />
+
+</header>
+<main></main>
+<footer>created 2025</footer>
+`
+
+document.querySelector("body").append(divElm)
+
+
+
+
+
+
+
 // ----------------- BEDRE UDGAVE---------------
 
 /**
@@ -10,7 +35,7 @@ function getIdFromPokemon(pokemonUrl) {
     return pokemonUrl.slice(0, -1).split("/").pop()
 }
 
-const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
+// const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
 
 // INFINITE SCROLL
 const observer = new IntersectionObserver(function (entries) {

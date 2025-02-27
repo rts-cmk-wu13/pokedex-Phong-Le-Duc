@@ -1,11 +1,12 @@
 function createPokeCard(poke) {
-    console.log(poke);
-    return `
+  // console.log(poke);
+  let pokeID = getIdFromPokemon(poke.url);
+  return `
             <article class="poke__card">
-                  <p>#${getIdFromPokemon(poke.url).padStart(4, "0")}</p>
+                  <p>#${padNumber(getIdFromPokemon(poke.url))}</p>
                    
                   <figure>
-                    <img class="poke_image" loading="lazy" src="${artworkUrl}/${getIdFromPokemon(poke.url)}.png" alt="${poke.name}">
+                    <img class="poke_image" loading="lazy" src="${getImageForPokeID(pokeID)}" alt="${poke.name}">
                  </figure>
                   
                  <h2 class="poke__name">${poke.name}</h2>
@@ -13,3 +14,13 @@ function createPokeCard(poke) {
                  <a class="poke__link" href="/detail.html?name=${poke.name}"></a>            
              </article>`
 }
+
+function padNumber(number) {
+  return number.toString().padStart(3, "0")
+}
+
+function getImageForPokeID(id) {
+  return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + id + ".png"
+}
+
+console.log(getImageForPokeID(3))
