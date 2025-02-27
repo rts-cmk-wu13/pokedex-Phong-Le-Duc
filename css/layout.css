@@ -35,14 +35,38 @@ main {
     background-color: white;
 }
 
+
+/*-------------- VERTICAL SCROL--------------L */
 .pokelist {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     border-radius: 20px;
 
-
 }
+
+/* -----------HORIZONTAL SCROLL------------------ */
+/* .pokelist {
+       display: flex;
+    overflow-x: scroll; */
+
+
+    /* hide scrollbar for IE, edge */
+    /* -ms-overflow-style: none;  */
+   
+     /* hide scrollbar for  firefox  */
+    /* scrollbar-width: none; */
+
+
+/* }  */
+
+
+/* hide scrollbar chrome, safari, opera */
+/* .pokelist::-webkit-scrollbar {
+    display: none;
+} */
+
+
 
 .pokelist article:nth-last-child(5) {
     background-color: orange;
