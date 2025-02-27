@@ -35,7 +35,7 @@ function getIdFromPokemon(pokemonUrl) {
     return pokemonUrl.slice(0, -1).split("/").pop()
 }
 
-const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
+// const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
 
 // INFINITE SCROLL
 const observer = new IntersectionObserver(function (entries) {
