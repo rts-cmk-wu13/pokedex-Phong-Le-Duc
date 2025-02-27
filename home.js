@@ -90,3 +90,5 @@ function fetchPokemon(offset) {
 
 
 fetchPokemon(currentOffset)
+
+

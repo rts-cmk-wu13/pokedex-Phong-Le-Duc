@@ -20,17 +20,17 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             console.log(pokemon);
 
 
-let headerElm = document.querySelector("header")
-headerElm.className = "header-detail"
-headerElm.innerHTML = `
+            let headerElm = document.querySelector("header")
+            headerElm.className = "header-detail"
+            headerElm.innerHTML = `
 <div class="name-id">
 <a href="javascript:history.back()"><img src="/img/back_arrow.png" alt=""></a>
     <p class="name-id__pokemon">${pokemon.name}</p>
     <p class="pad-number">#${pokemon.id.toString().padStart(4, "0")}</p>
     </div>
 `
-// document.querySelector("header").append(sectionElm)
-            
+            // document.querySelector("header").append(sectionElm)
+
             document.querySelector("body").style.backgroundColor = `var(--color-${pokemon.types[0].type.name})`;
 
 
@@ -85,7 +85,7 @@ ${pokemon.moves.slice(0, 2).map(function (singleMove) {
    <tr>
    <th>${singleStat.stat.name}</th>
   <td>${singleStat.base_stat}</td>
-  <td class="progbar"><meter id="file" max="250" value="${singleStat.base_stat}"></td>
+    <td class="progbar"><meter class="meter--${pokemon.types[0].type.name}"  id="file" max="250" value="${singleStat.base_stat}"></td>
     </tr>
     `
             }
@@ -94,16 +94,16 @@ ${pokemon.moves.slice(0, 2).map(function (singleMove) {
 
             `
 
- sectionElm.querySelectorAll("th").forEach(function(headingColor) {
-    headingColor.style.color = `var(--color-${pokemon.types[0].type.name})`
-})
+            sectionElm.querySelectorAll("th").forEach(function (headingColor) {
+                headingColor.style.color = `var(--color-${pokemon.types[0].type.name})`
+            })
 
-//  sectionElm.querySelector("meter").forEach(function(meterBarColor) {
-//     meterBarColor.style.backgroundColor = `var(--color-${pokemon.types[0].type.name})`
-// })
-                
+            //  sectionElm.querySelector("meter").forEach(function(meterBarColor) {
+            //     meterBarColor.style.backgroundColor = `var(--color-${pokemon.types[0].type.name})`
+            // })
 
-            sectionElm.querySelectorAll("h3").forEach(function(headingColor) {
+
+            sectionElm.querySelectorAll("h3").forEach(function (headingColor) {
                 headingColor.style.color = `var(--color-${pokemon.types[0].type.name})`
             })
             document.querySelector("main").append(sectionElm)
