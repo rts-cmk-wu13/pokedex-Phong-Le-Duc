@@ -12,7 +12,7 @@ function getIdFromPokemon(pokemonUrl) {
 
 const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
 
-
+// INFINITE SCROLL
 const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -30,6 +30,21 @@ const observer = new IntersectionObserver(function (entries) {
         }
     })
 })
+// --------------INFINITE SCROLL END--------------
+
+
+// --------------HARDCODED LAZY LOAD------------------
+// const imgObserver = new IntersectionObserver(function (entries) {
+//     entries.forEach(function (entry) {
+//         if (entry.isIntersecting) {
+//             entry.target.src = entry.target.dataset.imagesrc
+//             imgObserver.unobserve(entry.target)
+//         }
+//     })
+// })
+
+
+
 
 
 // her begynder selve komponentet
@@ -45,13 +60,23 @@ function fetchPokemon(offset) {
             return response.json()
         }).then(
             function (data) {
-                sectionElm.innerHTML += data.results.map(function(pokemon) {
+                sectionElm.innerHTML += data.results.map(function (pokemon) {
                     return createPokeCard(pokemon)
                 }).join("")
 
 
+                // OBSERVER TIL INFINITE SCROLL
                 let observedPokemon = sectionElm.querySelector("article:nth-last-child(5)")
                 observer.observe(observedPokemon)
+
+
+                // --------OBSERVER TIL HARDCODED LAZY LOAD
+                // let observedImgs = sectionElm.querySelectorAll(".poke_image")
+                // console.log(observedImgs);
+                // observedImgs.forEach(function (observedImg) {
+                //     imgObserver.observe(observedImg)
+                // })
+
 
             }
         )

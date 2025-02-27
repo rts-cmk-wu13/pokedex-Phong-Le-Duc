@@ -1,5 +1,3 @@
-
-
 :root {
     --color-grass: #74CB48;
     --color-fire: #F57D31;
@@ -77,30 +75,69 @@
 .rock {
     background-color: var(--color-rock);
 }
+
 .dark {
     background-color: var(--color-dark);
 }
+
 .dragon {
     background-color: var(--color-dragon);
 }
+
 .fairy {
     background-color: var(--color-fairy);
 }
+
 .flying {
     background-color: var(--color-flying);
 }
-.white{
+
+.white {
     background-color: var(--color-white);
 }
 
 
 
 
+.header-detail {
+    height: 20rem;
 
+    /* justify-content: space-between; */
+    gap: 1rem;
+    color: white;
+    align-items: center;
+    position: relative;
+}
 
 .name-id {
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
+    color: white;
+    align-items: center;
+}
+
+.name-id__pokemon {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.pad-number {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.poke_detail_image {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+.poke-detail {
+    padding-top: 2rem;
 }
 
 .poke__image-detail {
@@ -162,14 +199,14 @@ meter {
 /* meter {background: #0D76BE;} */
 
 
-meter::-webkit-meter-bar{
+meter::-webkit-meter-bar {
 
-    background:#b0d7ff;
-    
-    }
-    
-    meter::-moz-meter-bar{
+    background: #b0d7ff;
 
-        background:#b0d7ff;
-        
-        }
+}
+
+meter::-moz-meter-bar {
+
+    background: #b0d7ff;
+
+}

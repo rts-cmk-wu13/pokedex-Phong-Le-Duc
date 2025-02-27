@@ -5,7 +5,7 @@ function createPokeCard(poke) {
                   <p>#${getIdFromPokemon(poke.url).padStart(4, "0")}</p>
                    
                   <figure>
-                    <img class="poke_image" src="${artworkUrl}/${getIdFromPokemon(poke.url)}.png" alt="${poke.name}">
+                    <img class="poke_image" loading="lazy" src="${artworkUrl}/${getIdFromPokemon(poke.url)}.png" alt="${poke.name}">
                  </figure>
                   
                  <h2 class="poke__name">${poke.name}</h2>

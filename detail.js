@@ -21,9 +21,13 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
 
 
 let headerElm = document.querySelector("header")
+headerElm.className = "header-detail"
 headerElm.innerHTML = `
-    <p>${pokemon.name}</p>
-    <p>#${pokemon.id.toString().padStart(4, "0")}</p>
+<div class="name-id">
+<a href="javascript:history.back()"><img src="/img/back_arrow.png" alt=""></a>
+    <p class="name-id__pokemon">${pokemon.name}</p>
+    <p class="pad-number">#${pokemon.id.toString().padStart(4, "0")}</p>
+    </div>
 `
 // document.querySelector("header").append(sectionElm)
             
@@ -32,12 +36,12 @@ headerElm.innerHTML = `
 
             sectionElm.innerHTML = `
          
-         <div class="name-id">
+         <!-- <div class="name-id">
           <p>${pokemon.name}</p>
            <p>#${pokemon.id.toString().padStart(4, "0")}</p>
-           </div>
+           </div> -->
 
-           <img class="poke_image" src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
+           <img class="poke_detail_image" src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
 
            
            <h3>About</h3>
