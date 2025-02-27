@@ -36,13 +36,17 @@ main {
 }
 
 .pokelist {
+    /* horizontal scroll */
+    /* display: flex;
+    overflow-x: scroll; */
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     border-radius: 20px;
 
-
 }
+
 
 .pokelist article:nth-last-child(5) {
     background-color: orange;
